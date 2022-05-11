@@ -121,6 +121,7 @@ public sealed class BulkAllObservable<T> : IDisposable, IObservable<BulkAllRespo
 		{
 			s.Index(request.Index);
 			s.Timeout(request.Timeout);
+			s.RequestConfiguration(r => r.ThrowExceptions(false));
 
 			if (request.BufferToBulk is not null)
 			{
